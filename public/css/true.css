@@ -1,0 +1,54 @@
+/* General Styles */
+body {
+  background-color: #f5e1e1; /* Pastel pink background */
+  font-family: "Montserrat", sans-serif; /* Updated font */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  position: relative; /* To control z-index stacking */
+  cursor: url("../assets/cursor.cur"), auto; /* Custom animated cursor */
+}
+
+/* H1 Styles */
+h1 {
+  font-family: "Baloo 2", cursive;
+  font-weight: 700; /* Bold weight */
+  font-size: 3.5em; /* Adjust size as needed */
+  color: #ffffff; /* Darker pastel pink for text */
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3),
+    -1px -1px 2px rgba(255, 255, 255, 0.7); /* Light highlight for contrast */
+  background: #d08f8f; /* Darker pastel pink for background */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.3); /* Carved effect */
+  width: 100%;
+  max-width: 640px; /* Adjust width to control size */
+  position: relative; /* For z-index control */
+  z-index: 1; /* Ensure it's below the album-container */
+}
+
+/* Album Container Styles */
+.album-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 640px; /* Same as H1 max-width */
+}
+
+/* SoundCloud Player Styles */
+.soundcloud-player {
+  width: 640px; /* Fixed width */
+  height: 300px;
+  border-radius: 20px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2),
+    -4px -4px 8px rgba(255, 255, 255, 0.4); /* Neu-morphism effect */
+  background-color: #f5e1;
+}
