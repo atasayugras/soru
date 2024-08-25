@@ -29,11 +29,31 @@
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         var iframe = document.getElementById("soundcloud-player");
-        var widget = SC.Widget(iframe);
 
-        widget.bind(SC.Widget.Events.READY, function () {
-          widget.seekTo(394300); // Seek to 394 seconds (about 6 minutes and 34 seconds)
-        });
+        // Ensure the SC.Widget API is available before using it
+        if (typeof SC !== "undefined" && SC.Widget) {
+          var widget = SC.Widget(iframe);
+
+          widget.bind(SC.Widget.Events.READY, function () {
+            // Automatically play the track when ready
+            widget.play();
+
+            // Seek to the specified time after ensuring playback has started
+            widget.bind(SC.Widget.Events.PLAY, function () {
+              widget.seekTo(394300); // Seek to 394 seconds (about 6 minutes and 34 seconds)
+            });
+          });
+
+          // Optional: Handle autoplay issues on mobile devices
+          if (/Mobi|Android/i.test(navigator.userAgent)) {
+            widget.bind(SC.Widget.Events.PLAY, function () {
+              // Attempt to force playback if mobile browser restricts autoplay
+              widget.play();
+            });
+          }
+        } else {
+          console.error("SoundCloud Widget API is not available.");
+        }
       });
     </script>
   </body>

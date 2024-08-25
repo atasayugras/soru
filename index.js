@@ -2,6 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
+import _ from "lodash";
 
 const app = express();
 const port = 3000;
@@ -24,7 +25,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/check", (req, res) => {
-  userAnswer = req.body.answer;
+  userAnswer = _.toLower(req.body.answer);
   if (userAnswer === answer) {
     res.sendFile(`${__dirname}/public/views/true.html`);
   } else {
