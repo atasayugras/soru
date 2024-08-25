@@ -35,20 +35,21 @@
           var widget = SC.Widget(iframe);
 
           widget.bind(SC.Widget.Events.READY, function () {
-            // Automatically play the track when ready
+            // Attempt to play the track when the widget is ready
             widget.play();
-
-            // Seek to the specified time after ensuring playback has started
-            widget.bind(SC.Widget.Events.PLAY, function () {
-              widget.seekTo(394300); // Seek to 394 seconds (about 6 minutes and 34 seconds)
-            });
           });
 
-          // Optional: Handle autoplay issues on mobile devices
+          widget.bind(SC.Widget.Events.PLAY, function () {
+            // Only seek to the desired time after the track has started playing
+            widget.seekTo(394300); // Seek to 394 seconds (about 6 minutes and 34 seconds)
+          });
+
+          // Handle autoplay issues on mobile devices
           if (/Mobi|Android/i.test(navigator.userAgent)) {
-            widget.bind(SC.Widget.Events.PLAY, function () {
-              // Attempt to force playback if mobile browser restricts autoplay
-              widget.play();
+            widget.bind(SC.Widget.Events.ERROR, function () {
+              console.log(
+                "Browser engellediği için şarkı otomatik olarak başlamıyor. DJ Ckish'in bu güzel parçalarını dinlemek için, manuel olarak başlatmalısın."
+              );
             });
           }
         } else {
