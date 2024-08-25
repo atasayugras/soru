@@ -2,7 +2,6 @@
 body {
   background-color: #f5e1e1; /* Pastel pink background */
   font-family: "Baloo 2", cursive; /* Updated font */
-  margin: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,28 +11,37 @@ body {
   cursor: url("../assets/cursor.cur"), auto; /* Custom animated cursor */
 }
 
+/* Container Styles */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-left: 10%;
+  margin-right: 10%;
+  max-width: 530px;
+  min-width: 378.5px;
+}
+
 /* H1 Styles */
 h1 {
   font-family: "Baloo 2", cursive;
   font-weight: 700; /* Bold weight */
   font-size: 3.5em; /* Adjust size as needed */
   color: #ffffff; /* Darker pastel pink for text */
-  margin-bottom: 20px;
+  margin-bottom: 20px; /* Adjust spacing between heading and button */
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3),
     -1px -1px 2px rgba(255, 255, 255, 0.7); /* Light highlight for contrast */
   background: #d08f8f; /* Darker pastel pink for background */
   padding: 20px;
   border-radius: 10px;
   box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.3); /* Carved effect */
-  width: 100%;
-  max-width: 640px; /* Consistent width */
-  position: relative; /* For z-index control */
-  z-index: 1; /* Ensure it's above other elements */
+  width: 100%; /* Make h1 take full width of the container */
+  box-sizing: border-box; /* Include padding and border in the width calculation */
 }
 
 /* Button Styles */
 .retry-btn {
-  width: 640px;
   background: #f5e1e1; /* Pastel pink */
   border: none;
   border-radius: 10px;
@@ -47,13 +55,15 @@ h1 {
   z-index: 3; /* Bring button to the front */
   transition: background 0.3s, box-shadow 0.3s, transform 0.3s; /* Smooth transition for hover */
   text-decoration: none;
+  width: 100%; /* Make button take full width of the container */
+  box-sizing: border-box; /* Include padding and border in the width calculation */
 }
 
 /* Button Hover State */
 .retry-btn:hover {
   background: #f3b3b3; /* Lighter pastel pink */
   box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.2),
-    /* Carved effect */ inset -2px -2px 4px rgba(255, 255, 255, 0.4); /* Carved effect */
+    inset -2px -2px 4px rgba(255, 255, 255, 0.4); /* Carved effect */
   transform: translateY(
     4px
   ); /* Slightly move the button down to enhance the carved effect */
@@ -63,7 +73,7 @@ h1 {
 .retry-btn:active {
   background: #f1a2a2; /* Even lighter pastel pink */
   box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.3),
-    /* Deeper carved effect */ inset -4px -4px 8px rgba(255, 255, 255, 0.5); /* Deeper carved effect */
+    inset -4px -4px 8px rgba(255, 255, 255, 0.5); /* Deeper carved effect */
   transform: translateY(
     2px
   ); /* Slightly move the button down for the pressed effect */

@@ -2,7 +2,8 @@
 body {
   background-color: #f5e1e1; /* Pastel pink background */
   font-family: "Montserrat", sans-serif; /* Updated font */
-  margin: 0;
+  margin-left: 10%; /* or use a pixel value like 20px */
+  margin-right: 10%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -26,8 +27,6 @@ h1 {
   padding: 20px;
   border-radius: 10px;
   box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.3); /* Carved effect */
-  width: 100%;
-  max-width: 600px; /* Adjust width to control size */
   position: relative; /* For z-index control */
   z-index: 1; /* Ensure it's below the container */
 }
@@ -37,8 +36,8 @@ h1 {
   background: #f3dcdc; /* Slightly darker pastel pink for better neumorphism effect */
   border-radius: 15px;
   width: 100%;
-  max-width: 640px;
-  margin: 0 auto;
+  max-width: 530px;
+  min-width: 378.5px;
   display: flex;
   flex-direction: column;
   align-items: center;

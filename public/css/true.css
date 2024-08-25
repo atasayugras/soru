@@ -2,15 +2,23 @@
 body {
   background-color: #f5e1e1; /* Pastel pink background */
   font-family: "Montserrat", sans-serif; /* Updated font */
-  margin: 0;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
   text-align: center;
-  position: relative; /* To control z-index stacking */
-  cursor: url("../assets/cursor.cur"), auto; /* Custom animated cursor */
+}
+
+/* Flexbox container for h1 and the SoundCloud player */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-left: 10%;
+  margin-right: 10%;
+  max-width: 530px;
+  min-width: 378.5px;
 }
 
 /* H1 Styles */
@@ -26,29 +34,31 @@ h1 {
   padding: 20px;
   border-radius: 10px;
   box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.3); /* Carved effect */
-  width: 100%;
-  max-width: 640px; /* Adjust width to control size */
-  position: relative; /* For z-index control */
-  z-index: 1; /* Ensure it's below the album-container */
-}
-
-/* Album Container Styles */
-.album-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
-  width: 100%;
-  max-width: 640px; /* Same as H1 max-width */
+  width: 100%; /* Make h1 take full width of the container */
+  box-sizing: border-box; /* Include padding and border in the width calculation */
 }
 
 /* SoundCloud Player Styles */
 .soundcloud-player {
-  width: 640px; /* Fixed width */
-  height: 300px;
+  width: 100%; /* Ensure the player takes full width of the container */
+  max-width: 100%; /* Ensure the player doesn’t exceed container width */
+  padding-top: 56.25%; /* Maintain aspect ratio (16:9) */
+  position: relative; /* Needed for positioning the iframe */
+  margin: 0; /* Remove default margin */
   border-radius: 20px;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2),
-    -4px -4px 8px rgba(255, 255, 255, 0.4); /* Neu-morphism effect */
-  background-color: #f5e1;
+    /* Neu-morphism effect */ -4px -4px 8px rgba(255, 255, 255, 0.4); /* Neu-morphism effect */
+  background-color: #f5e1e1; /* Matching background color */
+  overflow: hidden; /* Ensure content doesn't overflow the container */
+}
+
+/* Iframe Styles */
+.soundcloud-player iframe {
+  position: absolute; /* Position the iframe absolutely within the container */
+  top: 0;
+  left: 0;
+  width: 100%; /* Ensure the iframe takes the full width of the container */
+  height: 100%; /* Ensure the iframe takes the full height of the container */
+  border-radius: inherit; /* Inherit the border-radius from the container */
+  border: none; /* Remove any default border */
 }
