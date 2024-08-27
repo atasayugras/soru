@@ -9,6 +9,8 @@ body {
   height: 100vh;
   text-align: center;
   cursor: url("../assets/cursor.cur"), auto; /* Custom animated cursor */
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 /* Container Styles */
@@ -17,8 +19,6 @@ body {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  margin-left: 10%;
-  margin-right: 10%;
   max-width: 530px;
   min-width: 378.5px;
 }
